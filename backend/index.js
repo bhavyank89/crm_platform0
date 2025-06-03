@@ -14,6 +14,7 @@ import campaignRoutes from './routes/campaign.js';
 import userRoutes from './routes/user.js';
 import communicationLogRoute from './routes/communicationLog.js';
 import venderRoute from './routes/vender.js';
+import homeRoute from './routes/home.js';
 
 dotenv.config();
 db();
@@ -47,6 +48,7 @@ app.use(express.json());
 app.use(passport.initialize()); // ✅ Only use initialize (no session needed)
 
 // API Routes
+app.use('/', homeRoute);
 app.use('/auth', authRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/orders', orderRoutes);
