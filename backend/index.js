@@ -24,6 +24,7 @@ const PORT = process.env.PORT || 5000; // ✅ Uses .env PORT (default fallback t
 const allowedOrigins = [
     "http://localhost:5173",
     "https://crm-platform0.vercel.app",
+    "https://crmplatform.vercel.app",
 ];
 
 app.use(
