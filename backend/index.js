@@ -24,8 +24,10 @@ const PORT = process.env.PORT || 5000; // ✅ Uses .env PORT (default fallback t
 
 app.use(
     cors({
-        origin: '*', // Allow all origins
-        credentials: false, // Still needed if you're sending cookies or auth headers
+        origin: (origin, callback) => {
+            callback(null, origin); // Dynamically reflect the origin
+        },
+        credentials: true, // Allow cookies/auth headers
     })
 );
 
