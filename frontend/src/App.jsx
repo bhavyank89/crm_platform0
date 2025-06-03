@@ -186,10 +186,13 @@ const AppContent = () => {
         if (tokenFromUrl) {
           try {
             // Validate token by fetching user info
-            const response = await fetch(`${BACKEND_URL}/api/auth/me`, {
+            const response = await fetch(`${BACKEND_URL}/api/user/fetch`, {
               headers: {
                 'Authorization': `Bearer ${tokenFromUrl}`
-              }
+              },
+              body: {
+                token: tokenFromUrl,
+              },
             });
 
             if (response.ok) {
@@ -213,10 +216,13 @@ const AppContent = () => {
           if (storedToken) {
             try {
               // Validate stored token
-              const response = await fetch(`${BACKEND_URL}/api/auth/me`, {
+              const response = await fetch(`${BACKEND_URL}/api/user/fetch`, {
                 headers: {
                   'Authorization': `Bearer ${storedToken}`
-                }
+                },
+                body: {
+                  token: storedToken,
+                },
               });
 
               if (response.ok) {

@@ -134,7 +134,7 @@ function SignUp({ backendUrl }) {
     setIsSubmitting(true);
 
     try {
-      const apiUrl = `${getBackendUrl()}/api/auth/signup`;
+      const apiUrl = `${getBackendUrl()}/auth/signup`;
 
       const res = await fetch(apiUrl, {
         method: "POST",
@@ -203,9 +203,8 @@ function SignUp({ backendUrl }) {
     <>
       <Toaster position="top-center" />
       <div
-        className={`h-screen w-screen flex items-center justify-center bg-gray-100 transition-all duration-500 ease-in-out ${
-          fadeOut ? "opacity-0" : fadeIn ? "opacity-100" : "opacity-0 translate-y-2"
-        }`}
+        className={`h-screen w-screen flex items-center justify-center bg-gray-100 transition-all duration-500 ease-in-out ${fadeOut ? "opacity-0" : fadeIn ? "opacity-100" : "opacity-0 translate-y-2"
+          }`}
       >
         <div className="w-full h-screen bg-white shadow-md rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
           {/* Left Illustration */}
@@ -386,9 +385,8 @@ function SignUp({ backendUrl }) {
                     <button
                       onClick={handleGoogleSignupRedirect}
                       disabled={isSubmitting}
-                      className={`flex items-center space-x-2 px-4 py-2 border rounded-full transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none ${
-                        fadeIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-                      }`}
+                      className={`flex items-center space-x-2 px-4 py-2 border rounded-full transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none ${fadeIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                        }`}
                       aria-label="Sign up with Google"
                       type="button"
                     >

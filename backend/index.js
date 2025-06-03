@@ -22,24 +22,10 @@ db();
 const app = express();
 const PORT = process.env.PORT || 5000; // ✅ Uses .env PORT (default fallback to 5000)
 
-const allowedOrigins = [
-    "http://localhost:5173",
-    "https://crm-platform0.vercel.app",
-    "https://crmplatform.vercel.app",
-];
-
 app.use(
     cors({
-        origin: (origin, callback) => {
-            // Allow requests with no origin (like mobile apps, curl, etc.)
-            if (!origin) return callback(null, true);
-            if (allowedOrigins.includes(origin)) {
-                return callback(null, true);
-            } else {
-                return callback(new Error("Not allowed by CORS"));
-            }
-        },
-        credentials: true, // If you're using cookies/auth headers
+        origin: '*', // Allow all origins
+        credentials: false, // Still needed if you're sending cookies or auth headers
     })
 );
 

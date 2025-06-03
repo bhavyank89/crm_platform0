@@ -55,11 +55,14 @@ function LoginGoogle({ setUser, backendUrl }) {
   // Validate token with backend
   const validateToken = useCallback(async (token) => {
     try {
-      const response = await fetch(`${getBackendUrl()}/api/auth/validate-token`, {
+      const response = await fetch(`${getBackendUrl()}/api/user/fetch`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${token}`
+        },
+        body: {
+          token: token,
         },
         credentials: "include"
       });
